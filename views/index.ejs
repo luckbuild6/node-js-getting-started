@@ -1,13 +1,28 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>LeanEngine</title>
+    <title>Contango</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <h1>LeanEngine</h1>
-    <p>Contango</p>
-    <p>当前时间：<%= currentTime %></p>
+  
+    <%= var http = require('http');
+    var url = "www.baidu.com";
+    http.get(url,function(res){
+    var html = '';
+    // 绑定data事件 回调函数 累加html片段
+    res.on('data',function(data){
+        html += data;
+    });
 
+    res.on('end',function(){
+        console.log(html);
+    });
+}).on('error',function(){
+    console.log('获取数据错误');
+});
+    
+    %>
+    
   </body>
 </html>
