@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 var http = require('http');
-var url = "http://www.baidu.com";
+var url = "http://vixcentral.com/historical/?days=9900";
 var contango = '';
 http.get(url,function(res){
     var html = '';
