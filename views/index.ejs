@@ -6,23 +6,7 @@
   </head>
   <body>
   
-    <%= var http = require('http');
-    var url = "www.baidu.com";
-    http.get(url,function(res){
-    var html = '';
-    // 绑定data事件 回调函数 累加html片段
-    res.on('data',function(data){
-        html += data;
-    });
-
-    res.on('end',function(){
-        console.log(html);
-    });
-}).on('error',function(){
-    console.log('获取数据错误');
-});
-    
-    %>
+    <%= contango %>
     
   </body>
 </html>
