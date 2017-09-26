@@ -35,7 +35,6 @@ app.use(cookieParser());
 var http = require('http');
 var url = "http://vixcentral.com/historical/?days=9900";
 var contango = '';
-var csv = require('csv');
 var fs =require('fs');
 http.get(url,function(res){
     var html = '';
