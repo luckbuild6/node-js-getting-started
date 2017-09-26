@@ -32,8 +32,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+var http = require('http');
+var url = "http://www.baidu.com";
+var contango = '';
+http.get(url,function(res){
+    var html = '';
+    // 绑定data事件 回调函数 累加html片段
+    res.on('data',function(data){
+        html += data;
+    });
+    res.on('end',function(){
+        console.log(html);
+        contango = html;
+    });   
+    }).on('error',function(){
+    console.log('获取数据错误');
+});
+
 app.get('/', function(req, res) {
-  res.render('index', { currentTime: new Date() });
+  res.render('index', { currentTime: new Date(), contango });
 });
 
 // 可以将一类的路由单独保存在一个文件中
